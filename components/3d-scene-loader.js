@@ -15,7 +15,7 @@ export const LoadingSpinner = () => (
 export const ThreeDSceneContainer = forwardRef(({ children }, ref) => (
   <Box
     ref={ref}
-    className="space-scene"
+    className="3d-scene"
     right={0}
     left={0}
     top={0}
