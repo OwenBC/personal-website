@@ -1,11 +1,5 @@
 import NextLink from 'next/link'
-import { 
-  Container,
-  Box,
-  Heading,
-  Image,
-  Link
-} from '@chakra-ui/react'
+import { Container, Box, Heading, Image, Link } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
@@ -41,20 +35,22 @@ const Page = () => {
         </Box>
 
         <Section delay={0.1}>
-          <Heading as='h3' variant="section-title">
+          <Heading as="h3" variant="section-title">
             Work
           </Heading>
           <Paragraph>
-            Body... link to my{' '}
+            Paragraph... link to my{' '}
             <NextLink href="/resume.pdf" passHref>
-              <Link target="_blank" rel="noopener noreferrer">resume</Link>
+              <Link target="_blank" rel="noopener noreferrer">
+                resume
+              </Link>
             </NextLink>
             .
           </Paragraph>
         </Section>
 
         <Section delay={0.2}>
-          <Heading as='h3' variant="section-title">
+          <Heading as="h3" variant="section-title">
             Hobbies
           </Heading>
           <Paragraph>
@@ -62,6 +58,7 @@ const Page = () => {
             <NextLink href="/hiking">
               <Link>hiking</Link>
             </NextLink>
+            ...
           </Paragraph>
         </Section>
       </Container>
