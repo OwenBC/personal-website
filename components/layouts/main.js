@@ -1,15 +1,20 @@
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import Navbar from '../navbar'
-import { Box, Container } from '@chakra-ui/react'
-import ThreeDSceneLoader from '../3d-scene-loader'
+import { useState } from 'react'
+import { Box, Container, useColorModeValue, IconButton } from '@chakra-ui/react'
+import { RepeatIcon } from '@chakra-ui/icons'
+import ConwayCanvas from '../conway-canvas'
+// import ThreeDSceneLoader from '../3d-scene-loader'
 
-const LazyThreeDScene = dynamic(() => import('../3d-scene'), {
-  ssr: false,
-  loading: () => <ThreeDSceneLoader />
-})
+// const LazyThreeDScene = dynamic(() => import('../3d-scene'), {
+//   ssr: false,
+//   loading: () => <ThreeDSceneLoader />
+// })
 
 const Main = ({ children, router }) => {
+  const [reset, setReset] = useState(false)
+
   return (
     <Box as="main" pb={8}>
       <Head>
@@ -19,16 +24,33 @@ const Main = ({ children, router }) => {
 
       <Navbar path={router.asPath} />
 
-      <LazyThreeDScene />
+      <Box
+        right={0}
+        left={0}
+        top={0}
+        bottom={0}
+        position="fixed"
+      >
+        <ConwayCanvas color={useColorModeValue("#9195fa", "#faf591")} reset={reset}/>
+      </Box>
+
+      <IconButton
+        position="fixed"
+        bottom={5}
+        left={5}
+        aria-label="Toggle theme"
+        colorScheme={useColorModeValue('blue', 'orange')}
+        icon={<RepeatIcon />}
+        onClick={() => {setReset(true)}}
+      />
 
       <Container
         maxW="container.md"
         py={20}
         variant="content-body"
         borderRadius={5}
-        height={5000}
         position="relative"
-        top="300px"
+        top="100px"
       >
         {children}
       </Container>
