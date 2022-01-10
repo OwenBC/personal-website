@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { Box, Container, useColorModeValue, IconButton } from '@chakra-ui/react'
 import { RepeatIcon } from '@chakra-ui/icons'
 import ConwayCanvas from '../conway-canvas'
+import Footer from '../footer'
 // import ThreeDSceneLoader from '../3d-scene-loader'
 
 // const LazyThreeDScene = dynamic(() => import('../3d-scene'), {
@@ -24,24 +25,24 @@ const Main = ({ children, router }) => {
 
       <Navbar path={router.asPath} />
 
-      <Box
-        right={0}
-        left={0}
-        top={0}
-        bottom={0}
-        position="fixed"
-      >
-        <ConwayCanvas color={useColorModeValue("#9195fa", "#faf591")} reset={reset}/>
+      <Box right={0} left={0} top={0} bottom={0} position="fixed">
+        <ConwayCanvas
+          color={useColorModeValue('#9195fa', '#faf591')}
+          reset={reset}
+          setReset={setReset}
+        />
       </Box>
 
       <IconButton
         position="fixed"
         bottom={5}
         left={5}
-        aria-label="Toggle theme"
+        aria-label="Reset game of life"
         colorScheme={useColorModeValue('blue', 'orange')}
         icon={<RepeatIcon />}
-        onClick={() => {setReset(true)}}
+        onClick={() => {
+          setReset(true)
+        }}
       />
 
       <Container
@@ -53,6 +54,7 @@ const Main = ({ children, router }) => {
         top="100px"
       >
         {children}
+        <Footer />
       </Container>
     </Box>
   )
