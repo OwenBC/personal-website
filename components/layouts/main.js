@@ -27,7 +27,8 @@ const Main = ({ children, router }) => {
 
       <Box right={0} left={0} top={0} bottom={0} position="fixed">
         <ConwayCanvas
-          color={useColorModeValue('#9195fa', '#faf591')}
+          color1={useColorModeValue('#f0e7db', '#f7bc31')}
+          color2={useColorModeValue('#9195fa', '#309fcf')}
           reset={reset}
           setReset={setReset}
         />

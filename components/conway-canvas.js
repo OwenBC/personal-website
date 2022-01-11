@@ -8,7 +8,7 @@ class Cell {
     this.ctx = context
     this.gridX = gridX
     this.gridY = gridY
-    this.alive = Math.random() > 0.7
+    this.alive = Math.random() > 0.5
     this.next = this.alive
   }
 
@@ -90,13 +90,44 @@ class GameOfLife {
     this._createGrid()
   }
 
-  draw(color) {
+  _rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  }
+
+  _hexToRgb(hex) {
+    // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+      return r + r + g + g + b + b
+    })
+  
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null
+  }
+
+  _gradient(delta, start, end) {
+    const startRgb = this._hexToRgb(start)
+    const endRgb = this._hexToRgb(end)
+    return this._rgbToHex(
+      Math.floor(((1-delta)*startRgb.r + delta*endRgb.r)/2),
+      Math.floor(((1-delta)*startRgb.g + delta*endRgb.g)/2),
+      Math.floor(((1-delta)*startRgb.b + delta*endRgb.b)/2)
+    )
+  }
+
+  draw(color1, color2) {
     this._checkSurrounding()
 
     this.ctx.clearRect(0, 0, this.ctx.canvas.clientWidth, this.ctx.canvas.clientHeight)
-
-    for (let i = 0; i < this.gameObjects.length; i++) {
-      this.gameObjects[i].draw(color)
+    
+    for (let x = 0; x < this.col; x++) {
+      for (let y = 0; y < this.row; y++) {
+        this.gameObjects[this._gridToIndex(x, y)].draw(this._gradient((((x + 1)/this.col)**2 + ((y + 1)/this.row)**2)**0.5, color1, color2))
+      }
     }
   }
 }
@@ -112,7 +143,7 @@ const debounce = (fn, ms) => {
   };
 }
 
-const ConwayCanvas = ({ color, reset, setReset, ...props }) => {
+const ConwayCanvas = ({ color1, color2, reset, setReset, ...props }) => {
   const canvasRef = useRef(null)
   const [rows, setRows] = useState()
   const [cols, setCols] = useState()
@@ -148,8 +179,8 @@ const ConwayCanvas = ({ color, reset, setReset, ...props }) => {
   }, [reset])
 
   const draw = (ctx, frameCount) => {
-    if (frameCount % 3 === 0 && !reset && game) {
-      game.draw(color)
+    if (frameCount % 4 === 0 && !reset && game) {
+      game.draw(color1, color2)
     }
   }
 
