@@ -6,6 +6,7 @@ import { Box, Container, useColorModeValue, IconButton } from '@chakra-ui/react'
 import { RepeatIcon } from '@chakra-ui/icons'
 import ConwayCanvas from '../conway-canvas'
 import Footer from '../footer'
+import ConwayMenu from '../conway-menu'
 // import ThreeDSceneLoader from '../3d-scene-loader'
 
 // const LazyThreeDScene = dynamic(() => import('../3d-scene'), {
@@ -34,16 +35,11 @@ const Main = ({ children, router }) => {
         />
       </Box>
 
-      <IconButton
+      <ConwayMenu 
         position="fixed"
         bottom={5}
         left={5}
-        aria-label="Reset game of life"
-        colorScheme={useColorModeValue('blue', 'orange')}
-        icon={<RepeatIcon />}
-        onClick={() => {
-          setReset(true)
-        }}
+        setReset={() => {setReset(true)}}
       />
 
       <Container

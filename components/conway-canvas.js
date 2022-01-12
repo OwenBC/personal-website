@@ -73,10 +73,10 @@ class GameOfLife {
   }
 
   _isAlive(x, y){
-    if (x < 0 || x >= this.col || y < 0 || y >= this.row) {
-      return 0
-    }
-    return this.gameObjects[this._gridToIndex(x, y)].alive ? 1 : 0
+    // if (x < 0 || x >= this.col || y < 0 || y >= this.row) {
+    //   return 0
+    // }
+    return this.gameObjects[this._gridToIndex((x + this.col)%this.col, (y + this.row)%this.row)].alive ? 1 : 0
   }
 
   _gridToIndex(x, y){
