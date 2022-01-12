@@ -21,6 +21,7 @@ const Main = ({ children, router }) => {
     <Box as="main" pb={8}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" href="/images/black_ram.svg" />
         <title>Owen Crewe - Homepage</title>
       </Head>
 
