@@ -28,10 +28,10 @@ const ConwayMenu = ({setReset, ...props}) => {
 			</PopoverTrigger>
 			<PopoverContent bg={useColorModeValue('#f0e7db', '#202023')}>
 				<PopoverHeader>
-					Conway's Game of Life
+					Conway&apos;s Game of Life
 				</PopoverHeader>
 				<PopoverBody>
-					The background of this page is a rendering of John Conway's Game of Life. It's a sequence of steps in which each cell either come alive or dies based on how many neighbors it has.
+					The background of this page is a rendering of John Conway&apos;s Game of Life. It&apos;s a sequence of steps in which each cell either come alive or dies based on how many neighbors it has.
 					<br /><br />
 					<list>
 						<ul>&bull; A live cell with fewer than 2 neighbors dies to underpopulation</ul>
@@ -40,7 +40,7 @@ const ConwayMenu = ({setReset, ...props}) => {
 						<ul>&bull; A dead cell with 3 nieghbors comes to life</ul>
 					</list>
 					<br />
-					Learn more&nbsp; 
+					Learn more{' '}
 					<NextLink href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" passHref>
 						<Link target="_blank" rel="noopener noreferrer">
 							here
