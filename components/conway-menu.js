@@ -8,7 +8,6 @@ import {
   PopoverFooter,
 	IconButton,
 	useColorModeValue,
-	Button,
 	Box,
 	Link
 } from '@chakra-ui/react'
@@ -27,7 +26,7 @@ const ConwayMenu = ({setReset, ...props}) => {
 					{...props}
 				/>
 			</PopoverTrigger>
-			<PopoverContent bg={useColorModeValue('#f0e7db', '#202023')} foc>
+			<PopoverContent bg={useColorModeValue('#f0e7db', '#202023')}>
 				<PopoverHeader>
 					Conway's Game of Life
 				</PopoverHeader>
