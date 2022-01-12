@@ -29,6 +29,7 @@ const LinkItem = ({ href, path, _target, children, ...props }) => {
         bg={active ? 'glassTeal' : undefined}
         color={active ? '#202023' : inactiveColor}
         _target={_target}
+        rel={_target ? 'noopener noreferrer' : undefined}
         {...props}
       >
         {children}
@@ -102,7 +103,7 @@ const Navbar = props => {
                 variant="outline"
                 aria-label="Options"
               />
-              <MenuList>
+              <MenuList bg={useColorModeValue('#f0e7db', '#202023')}>
                 <NextLink href="/" passHref>
                   <MenuItem as={Link}>About</MenuItem>
                 </NextLink>
