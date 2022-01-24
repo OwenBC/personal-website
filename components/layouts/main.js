@@ -27,11 +27,13 @@ const Main = ({ children, router }) => {
         />
       </Box>
 
-      <ConwayMenu 
+      <ConwayMenu
         position="fixed"
         bottom={5}
         left={5}
-        setReset={() => {setReset(true)}}
+        setReset={() => {
+          setReset(true)
+        }}
       />
 
       <Container

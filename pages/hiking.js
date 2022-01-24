@@ -10,7 +10,8 @@ const Hiking = () => {
           Hiking
         </Heading>
         <Paragraph>
-          Under construction... Trip reports coming eventually, if I ever get around to it.
+          Under construction... Trip reports coming eventually, if I ever get
+          around to it.
         </Paragraph>
       </Container>
     </Layout>

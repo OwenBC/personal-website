@@ -39,9 +39,11 @@ const Page = () => {
             Work
           </Heading>
           <Paragraph>
-            Welcome to my website! I&#39;m a software engineering student interested in all facets of the digital world. 
-            Lately, I've been delving into web development and cybersecurity. 
-            <br /><br />
+            Welcome to my website! I&#39;m a software engineering student
+            interested in all facets of the digital world. Lately, I&#39;ve been
+            delving into web development and cybersecurity.
+            <br />
+            <br />
             Check out my resume {''}
             <NextLink href="/resume.pdf" passHref>
               <Link target="_blank" rel="noopener noreferrer">
