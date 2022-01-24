@@ -39,17 +39,19 @@ const Page = () => {
             Work
           </Heading>
           <Paragraph>
-            Paragraph... link to my{' '}
+            Welcome to my website! I&#39;m a software engineering student interested in all facets of the digital world. 
+            Lately, I've been delving into web development and cybersecurity. 
+            <br /><br />
+            Check out my resume {''}
             <NextLink href="/resume.pdf" passHref>
               <Link target="_blank" rel="noopener noreferrer">
-                resume
+                here
               </Link>
             </NextLink>
-            .
+            , if you want.
           </Paragraph>
         </Section>
-
-        <Section delay={0.2}>
+        {/* <Section delay={0.2}>
           <Heading as="h3" variant="section-title">
             Hobbies
           </Heading>
@@ -59,6 +61,19 @@ const Page = () => {
               <Link>hiking</Link>
             </NextLink>
             ...
+          </Paragraph>
+        </Section> */}
+        <Section delay={0.2}>
+          <Heading as="h3" variant="section-title">
+            Contact
+          </Heading>
+          <Paragraph>
+            Email: {''}
+            <NextLink href="mailto:ocrewe04@gmail.com" passHref>
+              <Link target="_blank" rel="noopener noreferrer">
+                ocrewe04@gmail.com
+              </Link>
+            </NextLink>
           </Paragraph>
         </Section>
       </Container>

@@ -1,17 +1,9 @@
 import Head from 'next/head'
-// import dynamic from 'next/dynamic'
 import Navbar from '../navbar'
 import { useState } from 'react'
 import { Box, Container, useColorModeValue } from '@chakra-ui/react'
 import ConwayCanvas from '../conway-canvas'
-import Footer from '../footer'
 import ConwayMenu from '../conway-menu'
-// import ThreeDSceneLoader from '../3d-scene-loader'
-
-// const LazyThreeDScene = dynamic(() => import('../3d-scene'), {
-//   ssr: false,
-//   loading: () => <ThreeDSceneLoader />
-// })
 
 const Main = ({ children, router }) => {
   const [reset, setReset] = useState(false)
@@ -51,7 +43,6 @@ const Main = ({ children, router }) => {
         top="100px"
       >
         {children}
-        <Footer />
       </Container>
     </Box>
   )
