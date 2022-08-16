@@ -125,6 +125,17 @@ class GameOfLife {
     )
   }
 
+  setTile(mx, my) {
+    if (this.gameObjects) {
+      try{
+        this.gameObjects[this._gridToIndex((~~(mx/Cell.width))%this.col, (~~(my/Cell.height))%this.row)].alive = true
+        this.gameObjects[this._gridToIndex((~~(mx/Cell.width))%this.col, (~~(my/Cell.height))%this.row)].next = true
+      }catch {
+        console.log("x "+(~~(mx/Cell.width))%this.col +" y "+ (~~(my/Cell.height))%this.row)
+      }
+    }
+  }
+
   draw(color1, color2) {
     this._checkSurrounding()
 
@@ -175,7 +186,10 @@ const ConwayCanvas = ({ color1, color2, reset, setReset, ...props }) => {
       setGame(new GameOfLife(canvasRef.current.getContext('2d'), r, c))
     }, 500)
 
+    const drawTiles = (event) => {if (game) {game.setTile(event.x, event.y)}}
+
     window.addEventListener('resize', debouncedHandleResize)
+    window.addEventListener('mousemove', drawTiles)
 
     return _ => {
       window.removeEventListener('resize', debouncedHandleResize)

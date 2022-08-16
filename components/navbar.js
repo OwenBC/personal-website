@@ -73,24 +73,12 @@ const Navbar = props => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          <LinkItem href="/programming" path={path}>
-            Programming
+          <LinkItem href="/projects" path={path}>
+            Projects
           </LinkItem>
-          <LinkItem href="/hiking" path={path}>
+          {/* <LinkItem href="/hiking" path={path}>
             Hiking
-          </LinkItem>
-          <LinkItem
-            _target="_blank"
-            href="https://github.com/OwenBC/personal-website"
-            path={path}
-            display="inline-flex"
-            alignItems="center"
-            style={{ gap: 4 }}
-            pl={2}
-          >
-            <IoLogoGithub />
-            Source
-          </LinkItem>
+          </LinkItem> */}
         </Stack>
 
         <Box flex={1} align="right">
@@ -107,18 +95,12 @@ const Navbar = props => {
                 <NextLink href="/" passHref>
                   <MenuItem as={Link}>About</MenuItem>
                 </NextLink>
-                <NextLink href="/programming" passHref>
-                  <MenuItem as={Link}>Programming</MenuItem>
+                <NextLink href="/projects" passHref>
+                  <MenuItem as={Link}>Projects</MenuItem>
                 </NextLink>
-                <NextLink href="/hiking" passHref>
+                {/* <NextLink href="/hiking" passHref>
                   <MenuItem as={Link}>Hiking</MenuItem>
-                </NextLink>
-                <MenuItem
-                  as={Link}
-                  href="https://github.com/OwenBC/personal-website"
-                >
-                  View Source
-                </MenuItem>
+                </NextLink> */}
               </MenuList>
             </Menu>
           </Box>

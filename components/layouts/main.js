@@ -43,6 +43,9 @@ const Main = ({ children, router }) => {
         borderRadius={5}
         position="relative"
         top="100px"
+        style={{ backdropFilter: 'saturate(150%) blur(3px)' }}
+        bg={useColorModeValue('#ffffff40', '#20202380')}
+        // background="red"
       >
         {children}
       </Container>

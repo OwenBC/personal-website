@@ -2,19 +2,19 @@ import { Container, Heading } from '@chakra-ui/react'
 import Paragraph from '../components/paragraph'
 import Layout from '../components/layouts/article'
 
-const Programming = () => {
+const Projects = () => {
   return (
-    <Layout title="Programming">
+    <Layout title="Projects">
       <Container>
         <Heading as="h3" fontSize={20} mb={4}>
-          Programming
+          Projects
         </Heading>
         <Paragraph>
-          Under construction... Project writeups to come, probably.
+          Under construction... 
         </Paragraph>
       </Container>
     </Layout>
   )
 }
 
-export default Programming
+export default Projects

@@ -1,8 +1,10 @@
 import NextLink from 'next/link'
-import { Container, Box, Heading, Image, Link } from '@chakra-ui/react'
+import { Container, Box, Heading, Image, Link, IconButton, Flex, Spacer } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
+import { EmailIcon } from '@chakra-ui/icons'
 
 const Page = () => {
   return (
@@ -36,12 +38,14 @@ const Page = () => {
 
         <Section delay={0.1}>
           <Heading as="h3" variant="section-title">
-            Work
+            About me
           </Heading>
           <Paragraph>
-            Welcome to my website! I&#39;m a software engineering student
-            interested in all facets of the digital world. Lately, I&#39;ve been
-            delving into web development and cybersecurity.
+            Welcome to my website! I&#39;m a software engineering student at
+            the University of Victoria starting my last year of courses. 
+            Currently, I&#39;m looking for co-op positions to gain real world
+            experience and further my knowledge and abilities. I am looking 
+            for positions in the winter, summer and fall terms of 2023. 
             <br />
             <br />
             Check out my resume {''}
@@ -50,7 +54,7 @@ const Page = () => {
                 here
               </Link>
             </NextLink>
-            , if you want.
+            .
           </Paragraph>
         </Section>
         {/* <Section delay={0.2}>
@@ -65,18 +69,49 @@ const Page = () => {
             ...
           </Paragraph>
         </Section> */}
-        <Section delay={0.2}>
+        <Section delay={0.3}>
           <Heading as="h3" variant="section-title">
             Contact
           </Heading>
-          <Paragraph>
-            Email: {''}
-            <NextLink href="mailto:ocrewe04@gmail.com" passHref>
-              <Link target="_blank" rel="noopener noreferrer">
-                ocrewe04@gmail.com
-              </Link>
-            </NextLink>
-          </Paragraph>
+          <Box 
+            display={{ md: 'flex' }}
+            // background="red" 
+          >
+            <Flex>
+              <NextLink href="https://github.com/OwenBC" passHref>
+                <Link target="_blank" rel="noopener noreferrer">
+                  <IconButton
+                    variant="ghost"
+                    colorScheme="teal"
+                    size="lg"
+                    icon={<IoLogoGithub size={42}/>} 
+                  />
+                </Link>
+              </NextLink>
+              <Spacer />
+              <NextLink href="mailto:ocrewe04@gmail.com" passHref>
+                <Link target="_blank" rel="noopener noreferrer">
+                  <IconButton
+                    variant="ghost"
+                    colorScheme="teal"
+                    size="lg"
+                    icon={<EmailIcon boxSize={42} />} 
+                  />
+                </Link>
+              </NextLink>
+              <Spacer />
+              <NextLink href="https://linkedin.com/in/ocrewe/" passHref>
+                <Link target="_blank" rel="noopener noreferrer">
+                  <IconButton
+                    variant="ghost"
+                    colorScheme="teal"
+                    size="lg"
+                    icon={<IoLogoLinkedin size={42} />} 
+                  />
+                </Link>
+              </NextLink>
+            </Flex>
+          </Box>
         </Section>
       </Container>
     </Layout>
