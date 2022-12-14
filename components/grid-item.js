@@ -21,9 +21,9 @@ export const GridItem = ({ children, href, title, thumbnail }) => (
   </Box>
 )
 
-export const TitledGridItem = ({ children, href, title, thumbnail }) => (
+export const TitledGridItem = ({ children, page, title, thumbnail }) => (
   <Box w="100%" align="center">
-    <NextLink href={href}>
+    <NextLink href={page} passHref scroll={false}>
       <LinkBox cursor="pointer">
         <Image
           src={thumbnail}
@@ -31,7 +31,7 @@ export const TitledGridItem = ({ children, href, title, thumbnail }) => (
           className="grid-item-thumbnail"
           placeholder="blur"
         />
-        <LinkOverlay href={href} target="_blank">
+        <LinkOverlay href={page} target="_blank">
           <Text mt={2} fontSize={20}>
             {title}
           </Text>
