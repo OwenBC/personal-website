@@ -42,10 +42,10 @@ const Page = () => {
           </Heading>
           <Paragraph>
             Welcome to my website! I&#39;m a software engineering student at
-            the University of Victoria starting my last year of courses.
-            I&#39;m excited to be interning with AWS in the winter and 
-            summer terms of 2023! I&#39;m now looking for a co-op position for 
-            the fall term of 2023. 
+            the University of Victoria in my final year of study.
+            I&#39;m currently interning with AWS for the winter and 
+            summer terms of 2023! I&#39;m looking to line up my final 
+            co-op position this fall. 
             <br />
             <br />
             Check out my resume {''}
